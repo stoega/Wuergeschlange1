@@ -9,8 +9,8 @@ def sort_(elements: list, ascending: bool = True):
         elements[j + 1] = key
         
 
-some_list = [1, 3, 0, 4, 5]
-sort_(some_list)
-print(some_list)
-sort_(some_list, ascending=False)
-print(some_list)
+# some_list = [1, 3, 0, 4, 5]
+# sort_(some_list)
+# print(some_list)
+# sort_(some_list, ascending=False)
+# print(some_list)

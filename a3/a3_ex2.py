@@ -1,6 +1,4 @@
 elements = []
-# sets are unordered collections of unique elements
-# uniqe_elements = set()
 
 user_input = ""
 while True:
@@ -8,9 +6,7 @@ while True:
     if user_input.lower() == 'x':
         break
     elements.append(user_input)
-    # uniqe_elements.add(user_input)
     
-
 #sort uniqe elements
 uniqe_elements = set(elements)
 uniqe_elements = sorted(uniqe_elements)

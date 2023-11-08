@@ -48,9 +48,9 @@ def grade_calculator(assignments: list, bonus_assignment: int, exam: int):
 
     return (passed, grade)
 
-print(grade_calculator([95,100,39,13,86,71,20,100,83,100], None, 82))
-print(grade_calculator([95,100,39,13,86,71,20,100,83,100], 51, 82))
-print(grade_calculator([0,100,100,13,100,100,20,100,100,100], 0, 100))
-print(grade_calculator([0,100,100,13,100,100,20,100,100,100], 100, 100))
-print(grade_calculator([0,100,100,13,100,100,None,100,100,100], 100, 100))
-print(grade_calculator([100,100,100,100,100,100,100,100,100,100], 100, 49))
+# print(grade_calculator([95,100,39,13,86,71,20,100,83,100], None, 82))
+# print(grade_calculator([95,100,39,13,86,71,20,100,83,100], 51, 82))
+# print(grade_calculator([0,100,100,13,100,100,20,100,100,100], 0, 100))
+# print(grade_calculator([0,100,100,13,100,100,20,100,100,100], 100, 100))
+# print(grade_calculator([0,100,100,13,100,100,None,100,100,100], 100, 100))
+# print(grade_calculator([100,100,100,100,100,100,100,100,100,100], 100, 49))
