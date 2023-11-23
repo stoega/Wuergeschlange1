@@ -20,7 +20,6 @@ def print_directory_recursively(dir_path: str, level: int):
     # Get all files and subdirectories in the current directory
     items = os.listdir(dir_path)
 
-    # Iterate through the items
     for item in items:
         item_path = os.path.join(dir_path, item)
 
@@ -31,8 +30,7 @@ def print_directory_recursively(dir_path: str, level: int):
         elif os.path.isfile(item_path):
             print("\t" * (level + 1) + os.path.basename(item_path))
 
-# Example usage
-print_directory("./a5/d0")
-print_directory("D:/JKU/23WS/Python1/Wuergeschlange1/a5/d0")
+#print_directory(r"a5/d0")
+
 
 
