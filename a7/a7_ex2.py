@@ -1,10 +1,6 @@
 import math
 
 class Rotate:
-    matrix: list
-    degree: float
-    inplace: bool
-    
     def __init__(self, matrix: list, degree: float, inplace = False):
         self.matrix = matrix
         self.degree = degree

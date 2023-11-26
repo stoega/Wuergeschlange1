@@ -1,8 +1,6 @@
 import math
 
 class Radian:
-    degree: float
-    
     def __init__(self, degree: float):
         self.degree = degree
     

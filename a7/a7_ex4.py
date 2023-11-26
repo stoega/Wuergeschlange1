@@ -1,12 +1,8 @@
 from a7_ex3 import Distance
 
 class Minkowski(Distance):
-    vect1: list
-    vect2: list
-    
     def __init__(self, x: int, vect1: list, vect2: list):
         super().__init__(x)
-        self.x = x
         self.vect1 = vect1
         self.vect2 = vect2
     
