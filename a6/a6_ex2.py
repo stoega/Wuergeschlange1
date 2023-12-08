@@ -23,9 +23,9 @@ def chunks(path: str, size: int, **kwargs):
             yield chunk
 
 
-for i, c in enumerate(chunks("a6\Examples\ex2_example.txt", 0, mode="rb")):
-    print(f"Chunk {i} = {c}")
-for i, c in enumerate(chunks("a6\Examples\ex2_example.tt", 25, mode="rb")):
-    print(f"Chunk {i} = {c}")
-for i, c in enumerate(chunks("a6\Examples\ex2_example.txt", 25, mode="rb")):
-    print(f"Chunk {i} = {c}")
+# for i, c in enumerate(chunks(r"a6\Examples\ex2_example.txt", 0, mode="rb")):
+#     print(f"Chunk {i} = {c}")
+# for i, c in enumerate(chunks(r"a6\Examples\ex2_example.tt", 25, mode="rb")):
+#     print(f"Chunk {i} = {c}")
+# for i, c in enumerate(chunks(r"a6\Examples\ex2_example.txt", 25, mode="rb")):
+#     print(f"Chunk {i} = {c}")

@@ -9,32 +9,28 @@ def write_log(log_file: str, msg: str):
 
 
 def create_user(name: str, data: str, password: str, log_file: str = 'logs.txt'):
-    time = datetime.datetime.now()
-    msg_end = f"user {name} at {time}\n"
     user = {'name': name, 'data': data,
-            'password': password, 'last_changed': time}
+            'password': password, 'last_changed': datetime.datetime.now()}
 
     file_path = f"a6/{name}.pkl"
     log_msg = ''
     if os.path.isfile(file_path):
-        log_msg = f"Attempted creation of existing {msg_end}"
+        log_msg = f"Attempted creation of existing user {name} at {datetime.datetime.now()}\n"
     else:
-        with open(file_path, 'ab') as f:
+        with open(file_path, 'wb') as f:
             pickle.dump(user, f)
-        log_msg = f"Created {msg_end}"
+        log_msg = f"Created user {name} at {datetime.datetime.now()}\n"
 
     write_log(log_file, log_msg)
 
 
 def login(name: str, password: str, log_file: str = 'logs.txt'):
-    time = datetime.datetime.now()
-    msg_end = f"user {name} at {time}\n"
-    write_log(log_file, f'Attempted login for {msg_end}')
+    write_log(log_file, f'Attempted login for user {name} at {datetime.datetime.now()}\n')
 
     file_path = f'a6/{name}.pkl'
     if not os.path.isfile(file_path):
         write_log(
-            log_file, f'Attempted login for non-existing {msg_end}')
+            log_file, f'Attempted login for non-existing user {name} at {datetime.datetime.now()}\n')
         return None
 
     with open(file_path, 'rb') as f:
@@ -43,10 +39,10 @@ def login(name: str, password: str, log_file: str = 'logs.txt'):
         log_msg = ''
 
         if content['password'] == password:
-            log_msg = f'Login successful for {msg_end}'
+            log_msg = f'Login successful for user {name} at {datetime.datetime.now()}\n'
             data = content['data']
         else:
-            log_msg = f'Login failed for {msg_end}'
+            log_msg = f'Login failed for user {name} at {datetime.datetime.now()}\n'
 
         write_log(log_file, log_msg)
 
@@ -74,30 +70,30 @@ def change_password(name: str, old_password: str,
     
 
 
-if os.path.isfile('a6/Franz Kafka.pkl'):
-    os.remove('a6/Franz Kafka.pkl')
-if os.path.isfile('a6/H. P. Lovecraft.pkl'):
-    os.remove('a6/H. P. Lovecraft.pkl')
-if os.path.isfile('a6/William Golding.pkl'):
-    os.remove('a6/William Golding.pkl')
-if os.path.isfile('a6/George Orwell.pkl'):
-    os.remove('a6/George Orwell.pkl')
-if os.path.isfile('a6/logs.txt'):
-    os.remove('a6/logs.txt')
+# if os.path.isfile('a6/Franz Kafka.pkl'):
+#     os.remove('a6/Franz Kafka.pkl')
+# if os.path.isfile('a6/H. P. Lovecraft.pkl'):
+#     os.remove('a6/H. P. Lovecraft.pkl')
+# if os.path.isfile('a6/William Golding.pkl'):
+#     os.remove('a6/William Golding.pkl')
+# if os.path.isfile('a6/George Orwell.pkl'):
+#     os.remove('a6/George Orwell.pkl')
+# if os.path.isfile('a6/logs.txt'):
+#     os.remove('a6/logs.txt')
 
 
-create_user('Franz Kafka', 'Die Verwandlung', 'fkafka')
-create_user('H. P. Lovecraft', 'The Call of Cthulhu', 'lcrft')
-create_user('William Golding', 'Lord of the Flies', 'password')
-create_user('George Orwell', '1984', 'orwell1948')
-print(login('Franz Kafka', 'fkafks'))
-print(login('Franz Kafka', 'fkafka'))
-print(login('H. P. Lovecraft', 'lcrft'))
-print(login('William Golding', 'password'))
-change_password('William Golding', 'password', 'wigold')
-login('George Orwell', 'orwell1984')
-login('George Orwell', 'orwell1948')
-change_password('George Orwell', 'orwell1984', 'orwell1984')
-change_password('George Orwell', 'orwell1948', 'orwell1984')
-print(login('George Orwel', 'orwell1984'))
-create_user('George Orwell', '1984', 'orwell1984')
+# create_user('Franz Kafka', 'Die Verwandlung', 'fkafka')
+# create_user('H. P. Lovecraft', 'The Call of Cthulhu', 'lcrft')
+# create_user('William Golding', 'Lord of the Flies', 'password')
+# create_user('George Orwell', '1984', 'orwell1948')
+# print(login('Franz Kafka', 'fkafks'))
+# print(login('Franz Kafka', 'fkafka'))
+# print(login('H. P. Lovecraft', 'lcrft'))
+# print(login('William Golding', 'password'))
+# change_password('William Golding', 'password', 'wigold')
+# login('George Orwell', 'orwell1984')
+# login('George Orwell', 'orwell1948')
+# change_password('George Orwell', 'orwell1984', 'orwell1984')
+# change_password('George Orwell', 'orwell1948', 'orwell1984')
+# print(login('George Orwel', 'orwell1984'))
+# create_user('George Orwell', '1984', 'orwell1984')

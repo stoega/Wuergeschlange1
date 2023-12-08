@@ -34,8 +34,9 @@ def file_statistics(path: str):
     print(f"Number of digits: {n_digits}")
     print("--------------------")
 
-file_statistics('a6\Examples\ex1_1.txt')
-file_statistics('a6\Examples\ex1_2.txt')
-file_statistics('a6\Examples\ex1_3.txt')
-file_statistics('a6\Examples\ex1_4.py')
-file_statistics('a6\Examples\ex1_5.txt')
+# file_statistics(r'a6\Examples\ex1_1.txt')
+# file_statistics(r'a6\Examples\ex1_2.txt')
+# file_statistics(r'a6\Examples\ex1_3.txt')
+# file_statistics(r'a6\Examples\ex1_4.py')
+# file_statistics(r'a6\Examples\ex1_5.txt')
+

@@ -23,19 +23,13 @@ def merge_csv_files(*paths, delimiter=';', only_shared_columns=False):
     else:
         merged_headers = list(set([header for sublist in all_headers for header in sublist]))
     
-    with open('a6/merged.csv', 'w') as f:
+    with open(r'a6/merged.csv', 'w') as f:
         print(delimiter.join(merged_headers), file=f)
         for entry in data:
-            # line = ''
-            # for header in merged_headers:
-            #     if header in entry.keys():
-            #         line += entry[header] + delimiter
-            #     else:
-            #         line += 'NaN' + delimiter
             line = delimiter.join(entry.get(header, 'NaN') for header in merged_headers)
             print(line, file=f)
             
     
     
-#merge_csv_files('a6\Examples\ex3_1.csv', 'a6\Examples\ex3_2.csv', 'a6\Examples\ex3_3.csv', only_shared_columns = False)
-merge_csv_files('a6\Examples\ex3_1.csv', 'a6\Examples\ex3_2.csv', 'a6\Examples\ex3_3.csv', only_shared_columns = True)
+#merge_csv_files(r'a6\Examples\ex3_1.csv', r'a6\Examples\ex3_2.csv', r'a6\Examples\ex3_3.csv', only_shared_columns = False)
+#merge_csv_files(r'a6\Examples\ex3_1.csv', r'a6\Examples\ex3_2.csv', r'a6\Examples\ex3_3.csv', only_shared_columns = True)
