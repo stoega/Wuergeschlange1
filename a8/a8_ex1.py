@@ -9,14 +9,14 @@ class Angle:
         self.radian = radian
 
         if degree is not None and radian is None:
-            self.radian = deg_to_rad(degree)
+            self.radian = self.deg_to_rad(degree)
         elif degree is None and radian is not None:
-            self.degree = rad_to_deg(radian)
+            self.degree = self.rad_to_deg(radian)
         
         self.consistency()
         
     def consistency(self):
-        if not math.isclose(self.degree, rad_to_deg(self.radian)):
+        if not math.isclose(self.degree, self.rad_to_deg(self.radian)):
             raise ValueError("Degree and radian are not consistent.")
     
     def __eq__(self, other):
@@ -43,22 +43,25 @@ class Angle:
             return self
         return NotImplemented
     
-# Dunno
-def deg_to_rad(degree):
-    return degree * (math.pi / 180)
+    # Dunno
+    @staticmethod
+    def deg_to_rad(degree):
+        return degree * (math.pi / 180)
 
-def rad_to_deg(radian):
-    return radian * (180 / math.pi)
+    @staticmethod
+    def rad_to_deg(radian):
+        return radian * (180 / math.pi)
 
-def add_all(angle: Angle, *angles: Angle):
-    deg = angle.degree 
-    rad = angle.radian
-    
-    for ang in angles:
-        deg += ang.degree
-        rad += ang.radian
-            
-        return Angle(deg, rad)
+    @staticmethod
+    def add_all(angle: "Angle", *angles: "Angle"):
+        deg = angle.degree 
+        rad = angle.radian
+        
+        for ang in angles:
+            deg += ang.degree
+            rad += ang.radian
+                
+            return Angle(deg, rad)
     
 if __name__ == '__main__':
     a1 = Angle(degree=45)
@@ -75,7 +78,7 @@ if __name__ == '__main__':
     print(a1)
     
     # Hier Dunno
-    sum_angle = add_all(a1, a2, a3)
+    sum_angle = Angle.add_all(a1, a2, a3)
     print(sum_angle)
     
     try:

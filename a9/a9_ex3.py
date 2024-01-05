@@ -20,10 +20,10 @@ def euler_mascheroni_approximation(num_processes, num_terms):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Approximate the Euler–Mascheroni constant.")
-    parser.add_argument("--processes", "-p", type=int, default=1, help="Number of processes.")
-    parser.add_argument("--terms", "-n", type=int, default=1000, help="Number of terms in the sum.")
+    parser.add_argument("-p", "--processes", type=int, default=1, help="Number of processes.")
+    parser.add_argument("-n", "--n", type=int, default=1000, help="Number of terms in the sum.")
     args = parser.parse_args()
 
-    gamma_approximation = euler_mascheroni_approximation(args.processes, args.terms)
+    gamma_approximation = euler_mascheroni_approximation(args.processes, args.n)
 
-    print(f"Euler-Mascheroni constant approximation ({args.terms} terms): {gamma_approximation:.9f}")
+    print(f"Euler-Mascheroni constant approximation ({args.n} terms): {gamma_approximation:.9f}")
